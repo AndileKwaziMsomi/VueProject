@@ -27,7 +27,10 @@ export default {
       const endTime = Date.now();
       this.reactionTime = endTime - this.startTime;
       this.showBlock = false; // Hide the block after the click
+      this.$emit('blockClicked', this.reactionTime);
+      this.$emit('blockedHidden');
     }
+   
   }
 }
 </script>

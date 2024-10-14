@@ -5,21 +5,24 @@
     <div>
       <button @click="resetGame" :disabled="!isPlaying">Reset</button>
     </div>
-    <!-- Block only appears if the game is playing -->
     <block v-if="isPlaying" :delay="delay" @blockHidden="endGame" />
+    <Results v-if="showResults" :score="score"/>
   </div>
 </template>
 
 <script>
 import Block from './components/Block.vue'
+import Results from './components/Results.vue';
 
 export default {
   name: 'App',
-  components: { Block },
+  components: { Block , Results},
   data() {
     return {
       isPlaying: false,
-      delay: null
+      delay: null,
+      score: 0,
+      showResults: false
     };
   },
   methods: {
