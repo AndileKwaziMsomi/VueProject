@@ -1,5 +1,5 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer"> Click
+  <div class="block" v-if="showBlock" @click="stopTimer"> Quickly Press here
   </div>
 </template>
 
@@ -8,14 +8,15 @@ export default {
   props: ['delay'],
   data() {
     return {
-      showBlock: false, // Initially false so the block doesn't appear twice
+      showBlock: false, 
       startTime: null,
       reactionTime: 0
+      
     }
   },
   mounted() {
     setTimeout(() => {
-      this.showBlock = true; // Show the block after the delay
+      this.showBlock = true;
       this.startTimer();  
     }, this.delay);
   },
@@ -26,7 +27,7 @@ export default {
     stopTimer() {
       const endTime = Date.now();
       this.reactionTime = endTime - this.startTime;
-      this.showBlock = false; // Hide the block after the click
+      this.showBlock = false;
       this.$emit('blockClicked', this.reactionTime);
       this.$emit('blockedHidden');
     }
