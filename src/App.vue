@@ -5,9 +5,9 @@
     <div>
       <button @click="resetGame" :disabled="!isPlaying">Reset</button>
     </div>
-    <!-- Render block when playing and pass delay -->
+  
     <block v-if="isPlaying" :delay="delay" @blockClicked="endGame" />
-    <!-- Show results when the game is finished -->
+  
     <Results v-if="showResults" :score="score" />
   </div>
 </template>
